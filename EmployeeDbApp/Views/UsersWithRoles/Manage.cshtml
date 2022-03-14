@@ -1,0 +1,63 @@
+﻿
+@model List<EmployeeDbApp.Models.ManageUserAndRoles>
+
+
+@{
+    ViewData["Title"] = "Manage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="container">   
+    <div class="row">
+      <div class=" card col-md-4 offset-md-4 border p-5 shadow">
+       
+        <form method="post">
+          <div asp-validation-summary=All class="text-danger"></div>
+          <h3 class="fw-bold text-center"> Manage Roles </h3>
+            @ViewBag.UserName
+            <hr />
+
+          <div class="row-cols-md-2 mb-sm-3">
+                @for (var i = 0; i < Model.Count; i++)
+            {
+                <div class="form-check m-1">
+                    <input type="hidden" asp-for="@Model[i].RoleId" />
+                    <input type="hidden" asp-for="@Model[i].RoleName" />
+                    <input asp-for="@Model[i].Selected" class="form-check-input" />
+                    <label class="form-check-label" asp-for="@Model[i].Selected">
+                        @Model[i].RoleName
+                    </label>
+                </div>
+            }
+          </div>
+
+          <hr>
+
+
+            <div class="row ">
+                <input  type="submit" value="Update" class="btn btn-primary col-md-3 " />
+                 
+                <input type="reset" class="btn btn-warning col-md-3 ms-md-auto">
+                
+                <a asp-action="Index" class="btn btn-dark col-md-3 ms-md-auto">Cancel</a>
+            
+            </div>
+
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+
+

@@ -1,0 +1,54 @@
+﻿@model EmployeeDbApp.Models.Content.Department
+
+
+@{
+    ViewBag.Title = "Edit";
+    
+}
+
+
+
+
+<div class="container">   
+    <div class="row">
+      <div class=" card col-md-4 offset-md-4 border p-5 shadow">
+       
+        <form asp-action=@ViewBag.Title>
+          <div asp-validation-summary=All class="text-danger"></div>
+            <input type="hidden" asp-for="DepartmentId" />
+          <h3 align ="center"> Edit </h3>
+
+            <hr />
+
+          <div class="row-cols-md-2 mb-sm-3">
+                <label asp-for="DepartmentName" class="control-label"></label>
+                <input asp-for="DepartmentName" class="form-control" />
+                <span asp-validation-for="DepartmentName" class="text-danger"></span>
+          </div>
+
+          <hr>
+
+
+            <div class="row ">
+                <input asp-action="Edit" type="submit" value="Save" class="btn btn-primary col-md-3 " />
+
+                <input type="reset" class="btn btn-warning col-md-3 ms-md-auto">
+                <a asp-action="Index" class="btn btn-dark col-md-3 ms-md-auto">Cancel</a>
+            
+            </div>
+
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,114 @@
+
+
+html {
+    
+    font-size: 16px;
+   
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 13px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+   
+    font-family: 'Fira Sans', sans-serif;
+    background-color: white;
+    margin-bottom: 60px;
+}
+
+
+
+
+
+.card {
+    border-radius: 1rem;
+}
+
+
+nav svg:hover, span.nav-text:hover {
+    color: blue;
+}
+
+
+
+
+table {
+    width: 100%;
+    text-align: center;
+    margin: 1em 0;
+    border-collapse: collapse;
+    border: 0.1em solid #d6d6d6;
+    white-space: nowrap;
+}
+
+
+a.headerlink {
+color: white;
+background-color: transparent;
+text-decoration: none;
+}
+
+
+a.headerlink:hover {
+color: deepskyblue;
+background-color: transparent;
+text-decoration: overline;
+}
+
+
+
+
+
+
+.search {
+    position: relative;
+    box-shadow: 0 0 40px #d6d6d6
+}
+
+.search input {
+    height: 60px;
+    text-indent: 25px;
+    border: 2px solid rgb(35, 51, 234, 0.00)
+}
+
+.search input:focus {
+ box-shadow: none;
+ border: 2px solid babyblue
+}
+
+.search .fa-search {
+    position: absolute;
+    top: 20px;
+    left: 16px
+}
+
+.search button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    height: 50px;
+    width: 110px;
+    background: babyblue;
+}
+
+
+.fixed-tables {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.fixed-btns {
+    margin-left: 20%;
+}
+
+
+

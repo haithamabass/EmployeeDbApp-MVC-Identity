@@ -1,0 +1,62 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+
+
+<section class="vh-100 gradient-custom">
+    <form id="account" method="post">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card text-dark border-5 shadow">
+          <div class="card-body p-5 text-center">
+
+            <div class="mb-md-5 mt-md-4 pb-5">
+
+              <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+              <p class="text-50 mb-5 text-primary">Please enter your Email and Password!</p>
+              <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+              <div class="form-outline form-white mb-4">
+                <input asp-for="Input.Email" class="form-control form-control-lg" placeholder="Email" autocomplete="username" aria-required="true" />
+                  <span asp-validation-for="Input.Email" class="text-danger"></span>
+              </div>
+
+              <div class="form-outline form-white mb-4">
+                    <input asp-for="Input.Password" class="form-control form-control-lg"  placeholder="Password" autocomplete="current-password" aria-required="true" />
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+              </div>
+
+
+              <button class="btn btn-primary btn-lg px-5" type="submit">Login</button>
+
+             
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,47 @@
+﻿@model Microsoft.AspNetCore.Identity.IdentityRole
+@{
+    ViewData["Title"] = "AddRole";
+}
+
+
+
+<div class="container">   
+    <div class="row">
+      <div class=" card col-md-4 offset-md-4 border-3 p-5 shadow">
+       
+        <form asp-action=@ViewBag.Title>
+          <div asp-validation-summary=All class="text-danger"></div>
+          <h3 class="fw-bold text-center">Add new role</h3>
+
+            <hr />
+
+          <div class="row-cols-md-2 mb-sm-3">
+                <input asp-for="Name" class="form-control" placeholder="write role's name ... " />
+                <span asp-validation-for="Name" class="text-danger"></span>
+          </div>
+
+            <div class="row ">
+                <input asp-action="AddRole" type="submit" value="Add" class="btn btn-primary col-md-3 " />
+
+                <input type="reset" class="btn btn-warning col-md-3 ms-md-auto">
+                <a asp-action="Index" class="btn btn-dark col-md-3 ms-md-auto">Cancel</a>
+            
+            </div>
+
+
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

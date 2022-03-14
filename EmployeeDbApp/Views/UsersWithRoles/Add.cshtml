@@ -1,0 +1,70 @@
+﻿@model EmployeeDbApp.Models.AddNewUsers
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+
+<div class="container">   
+    <div class="row">
+      <div class="card col-md-6 offset-md-3  border-3 p-5 shadow">
+       
+        <form>
+          <div asp-validation-summary=ModelOnly class="text-danger"></div>
+          <h3 class="fw-bold text-center">Add new user</h3>
+
+            <hr />
+
+          <div class="row-cols-md-2 mb-sm-3">
+               
+               <input asp-for="FirstName" class="form-control" aria-required="true" placeholder="First Name" />
+          </div>
+
+            
+
+           <div class="row-cols-md-2 mb-sm-3">
+               <input asp-for="LastName" class="form-control" placeholder="Last Name" />
+               
+           </div>
+
+
+
+            <div class="row-cols-md-2 mb-sm-3">
+                <input asp-for="Email" class="form-control" placeholder="Email" />
+                
+            </div>
+
+
+
+            <div class="col mb-sm-3">
+                <label asp-for="Roles">Role</label>
+                 <select  class="form-select" aria-label="Select Role"  asp-for="Roles" asp-items="ViewBag.Role"  > <option selected> Choose a role ....</option>  </select>
+            </div>
+
+
+             
+            <div class="row ">
+                <input asp-action="Add" type="submit" value="Create" class="btn btn-primary col-md-2 " />
+
+                <input type="reset" class="btn btn-warning col-md-2 ms-md-auto">
+                <a asp-action="Index" class="btn btn-dark col-md-2 ms-md-auto">Cancel</a>
+            
+            </div>
+
+        </form>
+            
+         
+      </div>
+    </div>
+</div>
+
+
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

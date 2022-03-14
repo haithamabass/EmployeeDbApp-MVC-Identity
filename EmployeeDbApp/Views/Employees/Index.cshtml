@@ -1,0 +1,221 @@
+﻿@model IEnumerable<EmployeeDbApp.Models.Content.Employee>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<h3 align ="center" >All Employees</h3>
+
+
+
+
+
+<div class="container"  >
+    <div class="row height d-flex justify-content-center align-items-center" >
+        <div class="col-md-8">
+            <div class="search" > 
+                <form asp-controller="Employees" asp-action="Index">
+                    <input  class="form-control" type="text"  name="Search" placeholder="Search ......."> 
+                    
+                    <span class="input-group-append">
+                          <button class="btn btn-outline-secondary border-left-0 border" type="button">
+                                <i class="fa fa-times"></i>
+                          </button>
+                    </span>
+                    <button class="btn btn-primary" type="submit" value="Search">Search</button> 
+                    <i class="fa fa-search"></i> 
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<option value="">    </option>
+
+<span>
+
+    <a asp-action="Index" class="btn btn-outline-primary">
+    
+
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-back" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+           <path d="M9 11l-4 4l4 4m-4 -4h11a4 4 0 0 0 0 -8h-1"></path>
+        </svg>
+
+        Back to full list
+    </a>
+
+</span>
+
+
+
+<span>
+    <a asp-action="Create" class="btn btn-outline-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-plus" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+           <line x1="12" y1="5" x2="12" y2="19"></line>
+           <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+        Add New Employee
+    </a>
+
+</span>
+
+
+
+
+
+
+<div>
+    <table class="table table-striped" >
+        <thead class="table-dark">
+            <tr>
+                <th>
+                    <a class="headerlink" asp-action="Index" asp-route-sortOrder="@ViewData["EmployeeName"]">@Html.DisplayNameFor(model => model.EmployeeName)</a>
+                </th>
+                <th>
+                    <a  class="headerlink" asp-action="Index" asp-route-sortOrder="@ViewData["DOB"]">@Html.DisplayNameFor(model => model.DOB)</a>
+                </th>         
+                <th>          
+                    <a  class="headerlink" asp-action="Index" asp-route-sortOrder="@ViewData["HiringDate"]">@Html.DisplayNameFor(model => model.HiringDate)</a>
+
+                </th>
+                <th>
+                    <a class="headerlink" asp-action="Index" asp-route-sortOrder="@ViewData["GrossSalary"]">@Html.DisplayNameFor(model => model.GrossSalary)</a>
+                </th>
+                <th>
+                    <a class="headerlink" asp-action="Index" asp-route-sortOrder="@ViewData["NetSalary"]">@Html.DisplayNameFor(model => model.NetSalary)</a>
+
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.CityName)
+
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.DepartmentName)
+
+                </th>
+
+                <th>
+                    <a class="headerlink" asp-action="Index" asp-route-sortOrder="@ViewData["JobTitle"]">@Html.DisplayNameFor(model => model.JobTitle)</a>
+
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.PhoneNumber)
+
+                </th>
+                <th>
+
+                </th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+
+            @if (Model != null)
+            {
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EmployeeName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DOB)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.HiringDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.GrossSalary)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NetSalary)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CityName)
+                        </td>
+
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DepartmentName)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.JobTitle)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PhoneNumber)
+                        </td>
+
+                        <td>
+                            <a class="btn btn-outline-primary" asp-controller="Employees" asp-action="Edit" asp-route-id="@item.EmployeeId">
+                            
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                   <path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3"></path>
+                                   <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3"></path>
+                                   <line x1="16" y1="5" x2="19" y2="8"></line>
+                                </svg>
+                            
+                             </a>
+
+
+                            
+
+
+
+                            <a class="btn btn-outline-danger" asp-controller="Employees" asp-action="Delete" asp-route-id="@item.EmployeeId" onclick="return confirm('Are you sure you want to delete this ?')">
+                            
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                   <line x1="4" y1="7" x2="20" y2="7"></line>
+                                   <line x1="10" y1="11" x2="10" y2="17"></line>
+                                   <line x1="14" y1="11" x2="14" y2="17"></line>
+                                   <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
+                                   <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
+                                </svg>
+                            
+                            </a>
+
+
+                        </td>
+
+                    </tr>
+                }
+
+
+
+
+
+            }
+
+
+
+
+
+
+        </tbody>
+    </table>
+    </div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
